@@ -10,7 +10,7 @@ import (
 
 func main() {
 
-    // Initial read of card number
+	// Initial read of card number
 	reader := bufio.NewReader(os.Stdin)
 	fmt.Printf("Card Number : ")
 	input, err := reader.ReadString('\n')
@@ -24,11 +24,11 @@ func main() {
 		os.Exit(1)
 	}
 
-    // Detection of card type (AMEX/Visa/Mastercard)
+	// Detection of card type (AMEX/Visa/Mastercard)
 	firstTwo, err := strconv.Atoi(input[0:2])
-    if err != nil {
-        panic(err)
-    }
+	if err != nil {
+		panic(err)
+	}
 	currentCard := cardType(firstTwo, input)
 
 	// Calculate Luhn's checksum
