@@ -33,7 +33,6 @@ func main() {
 		if err != nil {
 			panic(err)
 		}
-		fmt.Println(parts, xdim)
 
 		for j := 0; j < xdim; j++ {
 			for k := 0; k < ydim; k++ {
