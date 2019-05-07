@@ -55,3 +55,17 @@ Prints a double half-pyramid *a-la* 2D-platformer Super Mario obstacles.
 
 - [FizzBuzz](fizzbuzz)   
 Because reasons
+
+### Other silly stuff
+- Vertical Posting
+For your discord channels
+```bash
+$ go run main.go MEMES
+
+M E M E S
+E E
+M   M
+E     E
+S       S
+
+```

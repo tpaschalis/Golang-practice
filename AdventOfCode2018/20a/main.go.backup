@@ -1,0 +1,43 @@
+package main
+
+import "fmt"
+import "strings"
+
+var allPaths []string
+func main() {
+
+    //input := `^ENWWW(NEEE|SSE(EE|N)))$`
+    input := `^ENWWW(NEEE|SSE(EE|N)))ASAASSA(MY(AA|BB)QWERTY(CC|DD(EE|FF|GG))STUFF)PPP$`
+    branch(input)
+
+
+}
+
+func branch(input string) {
+    fmt.Println("branchiiing!")
+    fmt.Println(input)
+
+    for i:=0; i<len(input); i++ {
+        if input[i:i+1] == "(" {
+            branch(input[i+1 : len(input)])
+            break
+        }
+    }
+    fmt.Println("Capturing : ", getParen(input))
+    currentParen := getParen(input)
+    parts := strings.Split(currentParen, "|")
+    fmt.Println("parts of it :", parts, len(parts))
+    fmt.Println()
+}
+
+func getParen(input string) string {
+    lp := 1
+    for i:=0; i<len(input); i++ {
+        if input[i:i+1] == "(" {lp++}
+        if input[i:i+1] == ")" {lp--}
+        if lp == 0 {
+            return (input[0:i])
+        }
+    }
+    panic("no paren matched")
+}
